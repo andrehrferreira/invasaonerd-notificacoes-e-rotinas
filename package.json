@@ -1,0 +1,35 @@
+{
+    "name": "invasao-notificacoes-e-rotinas",
+    "version": "1.0.0",
+    "description": "Another DEK project",
+    "author": "Gislainy Crisostomo Velasco",
+    "main": "src/index.js",
+    "scripts": {
+        "clean": "rm -rf build",
+        "dev": "cross-env NODE_ENV=development nodemon -w src --exec 'babel-node src --presets env'",
+        "build": "babel src -s -D -d build --presets env",
+        "kill": "fuser -k -n tcp 5555",
+        "start": "cross-env NODE_ENV=production node build/cluster.js",
+        "debug": "cross-env NODE_ENV=development nodemon --inspect -w src --exec 'babel-node src --presets env'"
+    },
+    "dependencies": {
+        "@babel/polyfill": "^7.4.4",
+        "@dekproject/mongodb": "^1.2.1",
+        "@dekproject/mongoose": "^1.1.1",
+        "@dekproject/rabbitmq": "^1.3.2",
+        "@dekproject/scope": "^1.2.1",
+        "cron": "^1.7.1",
+        "cross-env": "^5.2.0",
+        "dotenv": "^6.2.0",
+        "express": "^4.16.4",
+        "fcm-notification": "^2.0.0",
+        "googleapis": "^40.0.0",
+        "jsdom": "^15.1.1",
+        "kill-port": "^1.5.1",
+        "request": "^2.88.0"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-preset-env": "^1.7.0"
+    }
+}
